@@ -13,20 +13,20 @@
     <div><span id="d_currency">INR</span>:<span id="d_amount">0</span></div>
 </body>
 <script>
-    let from_select_box=document.getElementById("from_currency")
-    let select_box=document.getElementById("to_currency")
-    let amount=document.getElementById("amount")
-    let d_amount=document.getElementById("d_amount")
-    let d_currency=document.getElementById("d_currency")
+    const from_select_box=document.getElementById("from_currency")
+    const select_box=document.getElementById("to_currency")
+    const amount=document.getElementById("amount")
+    const d_amount=document.getElementById("d_amount")
+    const d_currency=document.getElementById("d_currency")
     api=async ()=>{
         url="https://v6.exchangerate-api.com/v6/118844c911c266c754e05adc/latest/INR"
         data=await fetch(url).then((res)=>res.json())
         console.log(data['conversion_rates'])
         for(country in data['conversion_rates']){
-            let option=document.createElement("option")
+            const option=document.createElement("option")
             option.value=data['conversion_rates'][country]
             option.text=country
-            let from_option=document.createElement("option")
+            const from_option=document.createElement("option")
             from_option.value=data['conversion_rates'][country]
             from_option.text=country
             select_box.appendChild(option)
